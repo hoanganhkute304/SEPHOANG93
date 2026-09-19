@@ -81,7 +81,7 @@ export function Hero() {
       >
         <div className="inline-flex flex-row flex-nowrap items-center gap-2 md:gap-3 bg-black/85 backdrop-blur-xl border border-white/20 p-1.5 md:px-4 md:py-2.5 rounded-full md:rounded-2xl shadow-[0_10px_35px_rgba(0,0,0,0.8)]">
           <a 
-            href="https://discord.com" 
+            href="https://discord.gg/3Y2v4wZkec" 
             target="_blank" 
             rel="noreferrer"
             title="Discord"
@@ -92,7 +92,7 @@ export function Hero() {
           </a>
 
           <a 
-            href="https://youtube.com" 
+            href="https://www.youtube.com/@SEP_HOANG_93" 
             target="_blank" 
             rel="noreferrer"
             title="YouTube"
@@ -105,7 +105,7 @@ export function Hero() {
           </a>
 
           <a 
-            href="https://tiktok.com" 
+            href="https://www.tiktok.com/@neon_9393" 
             target="_blank" 
             rel="noreferrer"
             title="TikTok"
@@ -118,7 +118,7 @@ export function Hero() {
           </a>
 
           <a 
-            href="https://instagram.com" 
+            href="https://www.tiktok.com/@sep_hoang_93" 
             target="_blank" 
             rel="noreferrer"
             title="Instagram"
