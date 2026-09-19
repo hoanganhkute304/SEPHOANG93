@@ -84,7 +84,6 @@ function App() {
   const [isEntered, setIsEntered] = useState(false);
 
   useEffect(() => {
-    // Tự động vào web sau 5s nếu người dùng không click
     const timer = setTimeout(() => {
       setIsEntered(true);
     }, 5000);
@@ -95,7 +94,6 @@ function App() {
     <>
       <CustomCursor />
       
-      {/* MÀN HÌNH CHỜ (INTRO SCREEN) */}
       <AnimatePresence>
         {!isEntered && (
           <motion.div
@@ -117,7 +115,6 @@ function App() {
               </span>
             </motion.div>
             
-            {/* Thanh Progress Bar 5 giây */}
             <div className="absolute bottom-12 w-48 sm:w-64 h-[2px] bg-white/10 rounded-full overflow-hidden">
                <motion.div 
                  initial={{ width: 0 }}
@@ -130,7 +127,6 @@ function App() {
         )}
       </AnimatePresence>
 
-      {/* NỘI DUNG CHÍNH CỦA WEBSITE */}
       {isEntered && (
         <>
           <HeroYouTubeBGM />
