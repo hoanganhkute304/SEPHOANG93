@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Oswald", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --color-bgBase: #070707;
+  --color-bgSurface: #0D0D0D;
+  --color-bgElevated: #151515;
+  --color-textMain: #F5F5F5;
+  --color-textMuted: #888888;
+  --color-accent: #D90429;
+  --color-accentHover: #EF233C;
+  --color-accentSoft: rgba(217, 4, 41, 0.1);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bgBase);
+    color: var(--color-textMain);
+    cursor: none;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+  a, button {
+    cursor: none;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    background: var(--color-bgBase);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a, button {
+    cursor: none;
+  }
+  input, textarea {
+    cursor: text !important;
+  }
+  /* Show native cursor clearly inside Telegram Chat Widget so it is never hidden */
+  #telegram-chat-widget,
+  #telegram-chat-widget * {
+    cursor: default !important;
+  }
+  #telegram-chat-widget button,
+  #telegram-chat-widget a,
+  #telegram-chat-widget [role="button"] {
+    cursor: pointer !important;
+  }
+  #telegram-chat-widget input,
+  #telegram-chat-widget textarea {
+    cursor: text !important;
+  }
+}
+
+@media (hover: none) or (pointer: coarse) {
+  body, a, button {
+    cursor: auto !important;
+  }
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}

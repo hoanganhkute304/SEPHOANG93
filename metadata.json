@@ -1,0 +1,8 @@
+{
+  "name": "Sếp Hoàng 93 - Streamer & Gamer Portfolio",
+  "description": "Website portfolio và góc giao lưu chính thức của Streamer Sếp Hoàng 93 - Valorant, TFT, Liên Minh Huyền Thoại, CS2 cùng hệ thống nhạc nền gaming sống động.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
