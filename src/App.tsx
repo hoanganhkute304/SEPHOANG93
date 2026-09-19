@@ -71,7 +71,7 @@ const fallbackWallpapers: Wallpaper[] = [
   },
   {
     id: "jett-hd",
-    title: "MY BEST ANIME",
+    title: "JETT BLADE STORM",
     subtitle: "",
     url: "https://res.cloudinary.com/wos7u4ud/video/upload/v1789712315/jett-valorant-hd-live-wallpaper-for-pc.mp4",
     order: 3,
@@ -130,7 +130,7 @@ function App() {
         )}
       </AnimatePresence>
 
-      {/* NỘI DUNG CHÍNH CỦA WEBSITE - Chỉ render khi đã Enter */}
+      {/* NỘI DUNG CHÍNH CỦA WEBSITE */}
       {isEntered && (
         <>
           <HeroYouTubeBGM />
