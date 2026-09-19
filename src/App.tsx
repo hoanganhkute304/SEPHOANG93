@@ -71,7 +71,7 @@ const fallbackWallpapers: Wallpaper[] = [
   },
   {
     id: "jett-hd",
-    title: "JETT BLADE STORM",
+    title: "MY BEST ANIME",
     subtitle: "",
     url: "https://res.cloudinary.com/wos7u4ud/video/upload/v1789712315/jett-valorant-hd-live-wallpaper-for-pc.mp4",
     order: 3,
