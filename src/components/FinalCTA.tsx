@@ -40,35 +40,37 @@ export function FinalCTA() {
 
   return (
     <section className="relative w-full h-screen overflow-hidden bg-bgBase snap-start snap-always shrink-0 flex flex-col items-center justify-center select-none">
-      {/* BACKGROUND VIDEO */}
-      <div className="absolute inset-0 z-0">
+      
+      {/* Đã thêm pointer-events-none vào div bọc ngoài để khóa tương tác chạm */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        
+        {/* Đã cập nhật đủ bộ thuộc tính chặn bung video cho Mobile/TikTok */}
         <video 
           autoPlay 
           muted 
           loop 
           playsInline
-          className="w-full h-full object-cover opacity-75"
+          webkit-playsinline="true"
+          x5-playsinline="true"
+          controls={false}
+          className="w-full h-full object-cover opacity-75 pointer-events-none select-none"
         >
           <source src="https://res.cloudinary.com/wos7u4ud/video/upload/v1787243756/13_04_Homescreen.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-bgBase via-bgBase/60 to-transparent" />
       </div>
       
-      {/* TIÊU ĐỀ CHÍNH GIỮA (ĐÃ BỎ DÒNG SẾP HOÀNG 93 - VALORANT/LOL) */}
-      <div className="relative z-10 text-center flex flex-col items-center px-4">
+      <div className="relative z-10 text-center flex flex-col items-center px-4 pointer-events-none">
         <h2 className="text-6xl sm:text-8xl md:text-9xl lg:text-[11rem] font-display text-white leading-none drop-shadow-2xl">
           SEE YOU<br/><span className="text-accent">IN GAME.</span>
         </h2>
       </div>
 
-      {/* FOOTER BẢN QUYỀN GÓC TRÁI DƯỚI CÙNG */}
-      <div className="absolute bottom-6 md:bottom-8 left-6 md:left-12 hidden sm:flex items-center gap-3 z-20">
+      <div className="absolute bottom-6 md:bottom-8 left-6 md:left-12 hidden sm:flex items-center gap-3 z-20 pointer-events-none">
         <img src={brand.logo} alt={brand.name} className="h-5 w-auto object-contain opacity-40" />
         <p className="text-[10px] tracking-[0.2em] text-white/40">{brand.tagline}</p>
       </div>
 
-      {/* THÔNG TIN LIÊN HỆ Ở DƯỚI CÙNG GÓC PHẢI - HÀNG NGANG, CHỈ CHỮ VÀ NÚT COPY */}
-      {/* Yêu cầu: Bỏ số điện thoại nhưng giữ nguyên vị trí, không được dịch chuyển các ô khác vì bị che bởi bật nhạc và chat */}
       <div className="absolute bottom-6 md:bottom-8 right-6 md:right-12 z-30 flex flex-row flex-wrap items-center justify-end gap-4 sm:gap-6 pointer-events-auto">
         {contactList.map((item) => {
           if (item.key === 'sdt') {

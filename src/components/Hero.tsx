@@ -30,23 +30,29 @@ export function Hero() {
         <img ref={logoLoading} src={brand.logo} alt={brand.name} className="h-24 w-auto object-contain opacity-0" />
       </div>
 
-      <div className="absolute inset-0 z-0">
+      {/* Đã thêm pointer-events-none vào div bọc ngoài để khóa tương tác chạm */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-t from-bgBase via-bgBase/40 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-bgBase via-bgBase/20 to-transparent z-10" />
+        
+        {/* Đã cập nhật đủ bộ thuộc tính chặn bung video cho Mobile/TikTok */}
         <video 
           ref={bgVideo}
           autoPlay 
           muted 
           loop 
           playsInline
-          className="w-full h-full object-cover opacity-90 scale-100 transition-transform duration-1000"
+          webkit-playsinline="true"
+          x5-playsinline="true"
+          controls={false}
+          className="w-full h-full object-cover opacity-90 scale-100 transition-transform duration-1000 pointer-events-none select-none"
         >
           <source src="https://res.cloudinary.com/wos7u4ud/video/upload/v1789712315/jett-valorant-hd-live-wallpaper-for-pc.mp4" type="video/mp4" />
         </video>
       </div>
 
-      <div className="relative z-20 h-full w-full px-6 md:px-10 lg:px-14 flex flex-col justify-end pb-24 md:pb-28">
-        <div ref={cta} className="flex flex-col gap-3.5 items-start">
+      <div className="relative z-20 h-full w-full px-6 md:px-10 lg:px-14 flex flex-col justify-end pb-24 md:pb-28 pointer-events-none">
+        <div ref={cta} className="flex flex-col gap-3.5 items-start pointer-events-auto">
           <div className="flex items-center gap-3 md:gap-4 text-accent font-display tracking-[0.2em] text-3xl md:text-5xl lg:text-6xl drop-shadow-2xl">
             <span>STREAMER</span>
             <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-white" />
