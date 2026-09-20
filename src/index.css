@@ -79,3 +79,11 @@
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+/* Khóa cứng Video Nền trên thiết bị di động, chống tràn và chống tương tác */
+video {
+  object-fit: cover !important;
+  pointer-events: none !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
