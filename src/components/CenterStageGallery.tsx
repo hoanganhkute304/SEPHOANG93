@@ -265,7 +265,7 @@ export function CenterStageGallery({
               <img
                 src={item.image}
                 alt={`Story ${i + 1}`}
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${isCenter && isHoveringCenter ? 'scale-105' : 'scale-100'} ${isCenter && showCenterVideo ? 'opacity-0' : 'opacity-100'}`}
+                className={`absolute inset-0 w-full h-full object-cover pointer-events-none select-none transition-all duration-700 ease-out ${isCenter && isHoveringCenter ? 'scale-105' : 'scale-100'} ${isCenter && showCenterVideo ? 'opacity-0' : 'opacity-100'}`}
                 loading="lazy"
               />
               
@@ -276,7 +276,10 @@ export function CenterStageGallery({
                   loop
                   muted={isMuted}
                   playsInline
-                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out scale-105 ${showCenterVideo ? 'opacity-100' : 'opacity-0'}`}
+                  webkit-playsinline="true"
+                  x5-playsinline="true"
+                  controls={false}
+                  className={`absolute inset-0 w-full h-full object-cover pointer-events-none select-none transition-all duration-700 ease-out scale-105 ${showCenterVideo ? 'opacity-100' : 'opacity-0'}`}
                 />
               )}
 
