@@ -247,10 +247,7 @@ export function FullscreenVideo({ data, index }: VideoProps) {
           muted 
           loop 
           playsInline
-          webkit-playsinline="true"
-          x5-playsinline="true"
-          controls={false}
-          className="w-full h-full object-cover pointer-events-none select-none"
+          className="w-full h-full object-cover"
           key={data.url}
         >
           <source src={data.url} type="video/mp4" />
