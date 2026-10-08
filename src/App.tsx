@@ -253,10 +253,12 @@ export default function App() {
     return list;
   }, [apps]);
 
-  // XỬ LÝ DOWNLOAD TUYỆT ĐỐI KHÔNG BỊ LỖI
+  // XỬ LÝ DOWNLOAD: Tải ngầm không làm reload trang
   const handleDownload = async (app: AppItem) => {
     try {
       const isWin = app.platform === 'windows' || app.fileExtension === '.exe';
+      
+      // 1. Tăng số lượt tải ảo trên UI ngay lập tức
       setApps((prev) =>
         prev.map((item) =>
           item.id === app.id
@@ -265,9 +267,11 @@ export default function App() {
         )
       );
       
+      // 2. Gửi API đếm lượt tải
       incrementFirestoreDownload(app.id).catch(() => {});
       fetch(`/api/apps/${app.id}/download`, { method: 'POST' }).catch(() => {});
 
+      // 3. Xử lý đường dẫn file
       let targetUrl = app.downloadUrl;
       if (targetUrl.startsWith('/uploads/')) {
         targetUrl = window.location.origin + targetUrl; 
@@ -275,9 +279,16 @@ export default function App() {
         targetUrl = window.location.origin + `/api/apps/${app.id}/download-file`;
       }
 
-      // Ép trình duyệt đi thẳng tới tệp tin
-      window.location.href = targetUrl;
+      // 4. Tạo thẻ <a> ẩn có target="_blank" để tải file ngầm (KHÔNG RELOAD TRANG)
+      const link = document.createElement('a');
+      link.href = targetUrl;
+      link.target = '_blank'; // Quan trọng: Mở tiến trình tải ở tab/nền khác
+      link.setAttribute('download', app.filename || `${app.name}${app.fileExtension || (isWin ? '.exe' : '.apk')}`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
 
+      // 5. Mở popup Donate nếu là app Windows
       if (isWin) {
         setDonationApp(app);
       }
